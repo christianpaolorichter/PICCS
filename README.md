@@ -64,7 +64,7 @@ prcntComplex = 0.035; %[x100% B] (Target fraction of B molecules forming complex
 epsilon = [0.025 0.025]; %[µm] (Localization precision (epsilon) for species A and B)
 corrLimit = 0.2; %[µm] (Maximum radius/distance for correlation analysis)
 dr = 0.01; %[µm] (Radial step size/bin width for calculating Ccum)
-verbose = 1; Boolean flag (1 or 0) to display the fitted Ccum
+verbose = 1; %Boolean flag (1 or 0) to display the fitted Ccum
 
 % --- Simulation Loop ---
 % Loop runs 'numCell' times, generating independent localization data sets.
@@ -74,14 +74,12 @@ for idxCell = numCell:-1:1
     [A,B,prcntComplex] = ...
         simulate_complex_formation_uniform_background(...
         area,molDens,prcntComplex,epsilon,corrLimit);
-
-    %% [AB]/[B] & [A]
-
+   
     % Define the vector of radial distances (r) at which the CCF will be calculated.
     rCorr = dr:dr:corrLimit;
 
     % Calculate the Cumulative Cross-Correlation for the current cell.
-    Ccum(:,idxCell) = PICCS_calculate_cum_corr(A,B,rCorr);
+    Ccum(:,idxCell) = PICCS_calculate_cum_corr(A,B,rCorr); %[AB]/[B] & [A]
 end %fun
 
 % --- Analysis of Averaged Data ---
@@ -95,6 +93,9 @@ You should obtain the following Output demonstrating successful parameter recove
   <img src="https://github.com/christianpaolorichter/PICCS/blob/main/results_evaluate_PICCS.png?raw=true" alt=""/>
 </p>
 
+## Performance Evaluation
+The performance evaluation and detailed results can be found in the original publication by Semrau et al. (2011).
+
 ## Citation
 If you use this software/repository for your research, please cite:
 
@@ -104,4 +105,4 @@ Quantification of biological interactions with particle image cross-correlation 
 Biophys J. 2011 Apr 6;100(7):1810-8. doi: 10.1016/j.bpj.2010.12.3746. PMID: 21463595; PMCID: PMC3072609.
 
 ### 2. The PICCS Software (v1.0.0)
-Richter, C.P (2025). *PICCS* (v1.0.0). [Software]. Available from: https://github.com/christianpaolorichter/PICCS
+Richter, C.P. (2025). *PICCS* (v1.0.0). [Software]. Available from: https://github.com/christianpaolorichter/PICCS

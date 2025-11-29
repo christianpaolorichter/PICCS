@@ -104,5 +104,5 @@ Semrau S, Holtzer L, González-Gaitán M, Schmidt T.
 Quantification of biological interactions with particle image cross-correlation spectroscopy (PICCS). 
 Biophys J. 2011 Apr 6;100(7):1810-8. doi: 10.1016/j.bpj.2010.12.3746. PMID: 21463595; PMCID: PMC3072609.
 
-### 2. The PICCS Software (v1.0.0)
-Richter, C.P. (2025). *PICCS* (v1.0.0). [Software]. Available from: https://github.com/christianpaolorichter/PICCS
+### 2. The PICCS Software
+Richter, C.P. (2025). *PICCS* (v1.0.1). [Software]. Zenodo. https://doi.org/10.5281/zenodo.17762877

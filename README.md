@@ -66,6 +66,9 @@ corrLimit = 0.2; %[µm] (Maximum radius/distance for correlation analysis)
 dr = 0.01; %[µm] (Radial step size/bin width for calculating Ccum)
 verbose = 1; %Boolean flag (1 or 0) to display the fitted Ccum
 
+% Define the vector of radial distances (r) at which the CCF will be calculated.
+rCorr = dr:dr:corrLimit;
+
 % --- Simulation Loop ---
 % Loop runs 'numCell' times, generating independent localization data sets.
 for idxCell = numCell:-1:1
@@ -74,9 +77,6 @@ for idxCell = numCell:-1:1
     [A,B,prcntComplex] = ...
         simulate_complex_formation_uniform_background(...
         area,molDens,prcntComplex,epsilon,corrLimit);
-   
-    % Define the vector of radial distances (r) at which the CCF will be calculated.
-    rCorr = dr:dr:corrLimit;
 
     % Calculate the Cumulative Cross-Correlation for the current cell.
     Ccum(:,idxCell) = PICCS_calculate_cum_corr(A,B,rCorr); %[AB]/[B] & [A]

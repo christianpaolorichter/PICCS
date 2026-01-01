@@ -90,7 +90,7 @@ PICCS_uniform_bckgrnd(mean(Ccum,2),rCorr,verbose);
 You should obtain the following Output demonstrating successful parameter recovery:
 
 <p align="center">
-  <img src="https://github.com/christianpaolorichter/PICCS/blob/main/results_evaluate_PICCS.png?raw=true" alt=""/>
+  <img src="https://github.com/christianpaolorichter/PICCS/blob/main/results_evaluate_PICCS.png?raw=true" width="80%" alt=""/>
 </p>
 
 ## Performance Evaluation
